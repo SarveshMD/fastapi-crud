@@ -78,7 +78,7 @@ def delete_task(task_id: uuid.UUID, db: Session = Depends(get_db)):
     db.delete(task)
     db.commit()
 
-    return Response(status_code=status.HTTP_204_NO_CONTENT)
+    return None
 
 
 '''
