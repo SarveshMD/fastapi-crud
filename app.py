@@ -1,17 +1,14 @@
-from fastapi import FastAPI, HTTPException, Response, status, Depends
+from fastapi import FastAPI, HTTPException, status, Depends
 import uuid
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
-# from toy_data import toy_data
 from schemas import TaskCreate, TaskResponse, TaskUpdate
 from models import Task
 from database import get_db, Base, engine
 
 app = FastAPI()
 Base.metadata.create_all(bind=engine)
-
-# tasks = toy_data['Tasks']
 
 @app.get("/")
 def home():
