@@ -8,7 +8,6 @@ from models import Task
 from database import get_db, Base, engine
 
 app = FastAPI()
-Base.metadata.create_all(bind=engine)
 
 @app.get("/")
 def home():
@@ -58,6 +57,9 @@ def update_task(task_id: uuid.UUID, task_data: TaskUpdate, db: Session = Depends
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Task not found")
 
     updates = task_data.model_dump(exclude_unset=True)
+    if not updates:
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="At least one field must be provided for update")
+
     for field, value in updates.items():
         setattr(task, field, value)
 
