@@ -9,8 +9,10 @@ class TaskBase(BaseModel):
     description: str | None = None
     priority: PriorityEnum = PriorityEnum.LOW
 
+
 class TaskCreate(TaskBase):
-    pass
+    model_config = ConfigDict(extra='forbid')
+
 
 class TaskResponse(TaskBase):
     model_config = ConfigDict(from_attributes=True)
@@ -19,7 +21,10 @@ class TaskResponse(TaskBase):
     is_completed: bool
     created_at: datetime
 
+
 class TaskUpdate(BaseModel):
+    model_config = ConfigDict(extra='forbid')
+
     title: str | None = None
     description: str | None = None
     priority: PriorityEnum | None = None
