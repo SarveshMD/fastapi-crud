@@ -9,7 +9,7 @@ import pytest
 from models import PriorityEnum
 from database import Base
 from models import Task
-from app import app, get_db
+from main import app, get_db
 
 TEST_DB_URL = "sqlite:///:memory:"
 
