@@ -7,3 +7,4 @@ psycopg
 psycopg[binary]
 pytest
 gunicorn
+httpx2
