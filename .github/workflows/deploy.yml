@@ -28,8 +28,6 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run Pytest Suite
-        env: 
-          DATABASE_URL: sqlite:///./test.db
         run: |
           pytest -v
   

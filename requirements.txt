@@ -6,5 +6,6 @@ pydantic-settings
 psycopg
 psycopg[binary]
 pytest
+pytest-env
 gunicorn
 httpx2
